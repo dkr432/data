@@ -176,7 +176,7 @@ fig1.add_vrect(
 )
 
 # 기준선
-fig1.add_vline(x=cutoff_year, line_dash="dash", line_color="#ffffff60", line_width=1.5)
+fig1.add_vline(x=cutoff_year, line_dash="dash", line_color="rgba(255,255,255,0.38)", line_width=1.5)
 
 # 산점도
 fig1.add_trace(go.Scatter(
@@ -349,8 +349,8 @@ baseline = yearly["평균기온"].mean()
 yearly["편차"] = yearly["평균기온"] - baseline
 
 fig5 = go.Figure()
-fig5.add_hline(y=0, line_color="#ffffff40", line_width=1)
-fig5.add_vline(x=cutoff_year, line_dash="dash", line_color="#ffffff60", line_width=1.5)
+fig5.add_hline(y=0, line_color="rgba(255,255,255,0.25)", line_width=1)
+fig5.add_vline(x=cutoff_year, line_dash="dash", line_color="rgba(255,255,255,0.38)", line_width=1.5)
 
 for _, row in yearly.iterrows():
     color = "#e05c5c" if row["편차"] > 0 else "#5bc0eb"
