@@ -266,6 +266,9 @@ with col_a:
     ))
     # KDE 곡선
     for data, color in [(before["평균기온"], "#5bc0eb"), (after["평균기온"], "#e05c5c")]:
+        data = data.replace([np.inf, -np.inf], np.nan).dropna()
+        if len(data) < 2:
+            continue
         kde_x = np.linspace(data.min()-0.5, data.max()+0.5, 200)
         kde = stats.gaussian_kde(data)
         fig2.add_trace(go.Scatter(
